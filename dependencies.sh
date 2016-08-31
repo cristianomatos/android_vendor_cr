@@ -1,5 +1,5 @@
 #!/bin/bash
-# PA dependency updater script
+# CR dependency updater script
 set -e
 
 OLD_TAG=$1
@@ -17,7 +17,7 @@ FOUND_TAG=0
 
 echo "Replacing '$OLD_TAG' with '$NEW_TAG'.."
 
-for FILE in $(grep -rl $OLD_TAG products/*/pa.dependencies); do
+for FILE in $(grep -rl $OLD_TAG products/*/cr.dependencies); do
         if [ $FOUND_TAG -eq 0 ]; then FOUND_TAG=1; fi
         echo "    in $FILE"
         sed -i "s/$OLD_TAG/$NEW_TAG/g" "$FILE"

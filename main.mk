@@ -12,16 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export VENDOR := pa
+export VENDOR := cr
 
 # Include versioning information
 # Format: Major.minor.maintenance(-TAG)
-export PA_VERSION := 7.0.0-DEV
+export CR_VERSION := 7.0.0-ALPHA
 
-export ROM_VERSION := $(PA_VERSION)-$(shell date -u +%Y%m%d)
+export ROM_VERSION := $(CR_VERSION)-$(shell date -u +%Y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(ROM_VERSION) \
-    ro.pa.version=$(PA_VERSION)
+    ro.cr.version=$(CR_VERSION)
 
 # Override undesired Google defaults
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -43,15 +43,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Include vendor overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/common
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/$(TARGET_PRODUCT)
+PRODUCT_PACKAGE_OVERLAYS += vendor/cr/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/cr/overlay/$(TARGET_PRODUCT)
 
 # Include support for init.d scripts
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/bin/sysinit:system/bin/sysinit
+PRODUCT_COPY_FILES += vendor/cr/prebuilt/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Include support for userinit
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
+PRODUCT_COPY_FILES += vendor/cr/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
 # Include APN information
@@ -71,28 +71,22 @@ PRODUCT_PACKAGES += \
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/pa/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/pa/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
-
-# Build Chromium for Snapdragon (PA Browser)
-PRODUCT_PACKAGES += PA_Browser
-
-# Build ParanoidHub
-PRODUCT_PACKAGES += ParanoidHub
+    vendor/cr/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/cr/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/cr/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
 
 # Include the custom PA bootanimation
 ifeq ($(TARGET_BOOT_ANIMATION_RES),480)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/480.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/cr/prebuilt/bootanimation/480.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),720)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/720.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/cr/prebuilt/bootanimation/720.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/cr/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1440)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/1440.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/cr/prebuilt/bootanimation/1440.zip:system/media/bootanimation.zip
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -105,19 +99,8 @@ endif
 # Sony: Exclude superuser
 TW_EXCLUDE_SUPERSU := true
 
-# Theme engine
-PRODUCT_PACKAGES += \
-    aapt \
-    ThemeChooser \
-    ThemesProvider \
-    cm.theme.platform-res \
-    cm.theme.platform
-
-PRODUCT_COPY_FILES += \
-   vendor/pa/permissions/org.cyanogenmod.theme.xml:system/etc/permissions/org.cyanogenmod.theme.xml
-
 # Include vendor SEPolicy changes
-# include vendor/pa/sepolicy/sepolicy.mk
+# include vendor/cr/sepolicy/sepolicy.mk
 
 # Include performance tuning if it exists
 -include vendor/perf/perf.mk

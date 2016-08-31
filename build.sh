@@ -1,5 +1,5 @@
 #!/bin/bash
-# PA build helper script
+# CR build helper script
 
 # red = errors, cyan = warnings, green = confirmations, blue = informational
 # plain for generic text, bold for titles, reset flag at each end of line
@@ -45,7 +45,7 @@ DIR_OUT=$(readlink $DIR_ROOT/out)
 [ -z "$DIR_OUT" ] && DIR_OUT="$DIR_ROOT/out"
 
 # Make sure everything looks sane so far
-if [ ! -d "$DIR_ROOT/vendor/pa" ]; then
+if [ ! -d "$DIR_ROOT/vendor/cr" ]; then
         echo -e "${CLR_BLD_RED}error: insane root directory ($DIR_ROOT)${CLR_RST}"
         exit 1
 fi
@@ -67,7 +67,7 @@ if [ "$(update-alternatives --list javac | wc -l)" -gt 1 ]; then
 fi
 
 # Grab the build version
-PA_VERSION=$(cat $DIR_ROOT/vendor/pa/main.mk | grep 'PA_VERSION := *' | sed 's/.*= //')
+CR_VERSION=$(cat $DIR_ROOT/vendor/cr/main.mk | grep 'CR_VERSION := *' | sed 's/.*= //')
 
 # Grab all the command-line parameters
 export DEVICE=$1
@@ -131,7 +131,7 @@ fi
 TIME_START=$(date +%s.%N)
 
 # Friendly logging to tell the user everything is working fine is always nice
-echo -e "${CLR_BLD_GRN}Building AOSPA $PA_VERSION for $DEVICE${CLR_RST}"
+echo -e "${CLR_BLD_GRN}Building CRDROID $CR_VERSION for $DEVICE${CLR_RST}"
 echo -e "${CLR_GRN}Start time: $(date)${CLR_RST}"
 echo -e ""
 
@@ -145,9 +145,9 @@ echo -e ""
 echo -e "${CLR_BLD_BLU}Lunching $DEVICE${CLR_RST} ${CLR_CYA}(Including dependencies sync)${CLR_RST}"
 echo -e ""
 if [ "$FLAG_USER_BUILD" = 'y' ]; then
-        lunch "pa_$DEVICE-user"
+        lunch "cr_$DEVICE-user"
 else
-        lunch "pa_$DEVICE-userdebug"
+        lunch "cr_$DEVICE-userdebug"
 fi
 echo -e ""
 
