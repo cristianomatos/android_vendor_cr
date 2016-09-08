@@ -1,25 +1,25 @@
 [
     {
-        "remote":       "github",
-        "repository":   "cristianomatos/android_device_lge_hammerhead",
+        "remote":       "cr",
+        "repository":   "android_device_lge_hammerhead",
         "target_path":  "device/lge/hammerhead",
         "revision":     "nougat"
     },
     {
-        "remote":       "github",
-        "repository":   "CyanogenMod/android_kernel_lge_hammerhead",
-        "target_path":  "kernel/lge/hammerhead",
-        "revision":     "staging/cm-14.0"
+        "remote":       "aosp",
+        "repository":   "device/lge/bullhead-kernel",
+        "target_path":  "device/lge/bullhead-kernel",
+        "revision":     "refs/tags/android-n-preview-5"
     },
     {
-        "remote":       "github",
-        "repository":   "cristianomatos/android_hardware_qcom_msm8x74",
-        "target_path":  "hardware/qcom/msm8x74",
-        "revision":     "android-n-preview-5"
+        "remote":       "aosp",
+        "repository":   "platform/hardware/qcom/msm8x74",
+        "target_path":  "platform/hardware/qcom/msm8x74",
+        "revision":     "refs/tags/android-n-preview-5"
     },
     {
-        "remote":       "github",
-        "repository":   "TheMuppets/proprietary_vendor_lge",
+        "remote":       "muppets",
+        "repository":   "proprietary_vendor_lge",
         "target_path":  "vendor/lge",
         "revision":     "cm-14.0"
     }
