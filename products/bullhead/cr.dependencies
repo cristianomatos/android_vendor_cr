@@ -1,0 +1,20 @@
+[
+    {
+        "remote":       "cr",
+        "repository":   "android_device_lge_bullhead",
+        "target_path":  "device/lge/bullhead",
+        "revision":     "nougat"
+    },
+    {
+        "remote":       "aosp",
+        "repository":   "device/lge/bullhead-kernel",
+        "target_path":  "device/lge/bullhead-kernel",
+        "revision":     "refs/tags/android-7.0.0_r4"
+    },
+    {
+        "remote":       "muppets",
+        "repository":   "proprietary_vendor_lge",
+        "target_path":  "vendor/lge",
+        "revision":     "cm-14.0"
+    }
+]

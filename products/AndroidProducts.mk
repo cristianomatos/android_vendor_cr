@@ -13,4 +13,5 @@
 # limitations under the License.
 
 # Nexus
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/hammerhead/cr_hammerhead.mk
+PRODUCT_MAKEFILES += $(LOCAL_DIR)/bullhead/cr_bullhead.mk \
+                                          $(LOCAL_DIR)/hammerhead/cr_hammerhead.mk
