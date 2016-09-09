@@ -1,7 +1,7 @@
 [
     {
-        "remote":       "cr",
-        "repository":   "android_device_lge_bullhead",
+        "remote":       "github",
+        "repository":   "cristianomatos/android_device_lge_bullhead",
         "target_path":  "device/lge/bullhead",
         "revision":     "nougat"
     },
@@ -12,8 +12,8 @@
         "revision":     "refs/tags/android-7.0.0_r4"
     },
     {
-        "remote":       "muppets",
-        "repository":   "proprietary_vendor_lge",
+        "remote":       "github",
+        "repository":   "TheMuppets/proprietary_vendor_lge",
         "target_path":  "vendor/lge",
         "revision":     "cm-14.0"
     }
