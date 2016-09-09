@@ -9,7 +9,7 @@
         "remote":       "aosp",
         "repository":   "device/lge/bullhead-kernel",
         "target_path":  "device/lge/bullhead-kernel",
-        "revision":     "refs/tags/android-7.0.0_r4"
+        "revision":     "refs/tags/android-7.0.0_r6"
     },
     {
         "remote":       "github",
